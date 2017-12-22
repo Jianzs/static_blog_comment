@@ -1,0 +1,17 @@
+{
+  "name": "the-comment-of-hexo-blog",
+  "version": "0.0.1",
+  "description": "the comment of the static blog",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "PORT=4333 node server.js"
+  },
+  "author": "Zheng.SJ",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.7"
+  }
+}
