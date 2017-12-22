@@ -19,6 +19,7 @@ const CommentSchema = mongoose.Schema({
 	}
 });
 CommentSchema.statics.save = (data, callback) => {
+	data.articleUrl = data.article_url;
 	const comment = new Comment(data);
 	comment.save(callback);
 }
