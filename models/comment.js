@@ -20,6 +20,7 @@ const CommentSchema = mongoose.Schema({
 });
 CommentSchema.statics.save = (data, callback) => {
 	data.articleUrl = data.article_url;
+	data.author = data.author.length == 0 ? undefined : data.author;
 	const comment = new Comment(data);
 	comment.save(callback);
 }
