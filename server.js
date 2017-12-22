@@ -1,10 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const mongoose = require('mongoose');
 const Comment = require('./models/comment');
 
 const app = express();
 const port = process.env.PORT || 4000;
+
+/**
+ * connect mongodb
+ */
+mongoose.connect('mongodb://localhost/comment', {useMongoClient: true});
+const db = mongoose.connection;
+db.on('error', (err) => {console.log(err);});
+db.once('open', () => {console.log('open mongodb successfully!\n');});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
