@@ -43,6 +43,8 @@ app.get('/comments', (req, res, next) => {
 })
 
 app.post('/comments', (req, res, next) => {
+	req.body.content.replace(/</g, "&lt;");
+	req.body.content.replace(/>/g, "&gt;");
 	Comment.save(req.body, function(err, comment) {
 		if (err) {
 			res.send({succ: false});
